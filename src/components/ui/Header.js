@@ -17,6 +17,12 @@ const useStyles = makeStyles((theme) => ({
   logo: {
     height: "7em",
   },
+  logoContainer: {
+    padding: 0,
+    "&:hover": {
+      backgroundColor: "transparent",
+    },
+  },
   tabContainer: {
     marginLeft: "auto",
   },
@@ -60,7 +66,13 @@ export default function Header(props) {
     <React.Fragment>
       <AppBar>
         <Toolbar disableGutters>
-          <Button>
+          <Button
+            onClick={() => setValue(0)}
+            disableRipple
+            component={Link}
+            to="/"
+            className={classes.logoContainer}
+          >
             <img alt="company logo" src={logo} className={classes.logo} />
           </Button>
           <Tabs
